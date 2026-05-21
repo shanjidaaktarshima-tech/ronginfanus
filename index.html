@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>রঙিন ফানুস – রঙ এবং রাধুনি</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#110500;color:#FDF5E6;overflow-x:hidden;}
+  a{text-decoration:none;}
+  nav{position:fixed;top:0;left:0;right:0;background:#110500ee;backdrop-filter:blur(10px);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;z-index:100;border-bottom:1px solid #E8821A22;}
+  .nav-logo{font-size:1.3rem;font-weight:700;color:#F5C97A;}
+  .nav-cta{background:#E8821A;color:#110500;font-weight:700;font-size:0.88rem;padding:9px 20px;border-radius:40px;}
+  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;background:radial-gradient(ellipse 70% 50% at 50% 30%,#E8821A11 0%,transparent 70%);}
+  .badge{display:inline-block;background:#E8821A;color:#110500;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;padding:6px 18px;border-radius:40px;margin-bottom:24px;}
+  .hero h1{font-size:clamp(3rem,10vw,6.5rem);font-weight:800;color:#F5C97A;line-height:1;margin-bottom:8px;}
+  .hero-tag{font-size:clamp(1rem,3vw,1.4rem);color:#E8821A;margin-bottom:18px;}
+  .hero p{max-width:500px;font-size:1rem;line-height:1.8;color:#C4A070;margin-bottom:40px;}
+  .btn-group{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:50px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:transform 0.2s,opacity 0.2s;}
+  .btn:hover{transform:translateY(-2px);opacity:0.9;}
+  .btn-primary{background:#E8821A;color:#110500;}
+  .btn-outline{background:transparent;color:#F5C97A;border:2px solid #E8821A55;}
+  .btn-fb{background:#1877F2;color:#fff;}
+  .sec{padding:72px 24px;max-width:1100px;margin:0 auto;}
+  .sec-tag{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#E8821A;font-weight:700;margin-bottom:6px;}
+  .sec-title{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;color:#F5C97A;margin-bottom:36px;}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+  .gal-item{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;border:1px solid #E8821A22;transition:transform 0.25s,border-color 0.25s;}
+  .gal-item:hover{transform:translateY(-4px) scale(1.02);border-color:#E8821A88;}
+  .gal-item img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gal-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,#00000099);color:#FDF5E6;font-size:0.82rem;font-weight:600;padding:20px 12px 10px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;}
+  .card{background:linear-gradient(145deg,#2A1200,#1A0900);border:1px solid #E8821A22;border-radius:18px;padding:28px 18px;text-align:center;transition:transform 0.25s,border-color 0.25s;}
+  .card:hover{transform:translateY(-5px);border-color:#E8821A88;}
+  .card-icon{font-size:2.5rem;margin-bottom:12px;}
+  .card h3{font-size:1.05rem;font-weight:700;color:#FDF5E6;margin-bottom:6px;}
+  .card p{font-size:0.85rem;color:#907050;line-height:1.5;}
+  .stats{background:linear-gradient(135deg,#200D00,#150600);padding:64px 24px;}
+  .stats-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:28px;text-align:center;}
+  .stat-num{font-size:2.8rem;font-weight:800;color:#E8821A;line-height:1;}
+  .stat-lbl{font-size:0.85rem;color:#907050;margin-top:6px;}
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding:64px 24px;max-width:900px;margin:0 auto;}
+  .info-item{display:flex;align-items:flex-start;gap:12px;}
+  .info-emoji{font-size:1.6rem;flex-shrink:0;}
+  .info-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.15em;color:#E8821A;font-weight:700;margin-bottom:3px;}
+  .info-val{font-size:0.95rem;color:#FDF5E6;}
+  .info-val a{color:#F5C97A;}
+  .fb-banner{background:linear-gradient(135deg,#1a3a6e,#0d2147);border:1px solid #1877F244;border-radius:20px;padding:36px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:0;}
+  .fb-banner-icon{font-size:3rem;flex-shrink:0;}
+  .fb-banner-text h3{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:6px;}
+  .fb-banner-text p{color:#8aabdd;font-size:0.92rem;line-height:1.6;}
+  .fb-banner-btn{margin-left:auto;}
+  .cta-bottom{text-align:center;padding:72px 24px 90px;background:radial-gradient(ellipse 60% 60% at 50% 100%,#E8821A15 0%,transparent 70%);}
+  .cta-bottom .sec-title{margin-bottom:10px;}
+  .cta-bottom p{color:#907050;margin-bottom:32px;}
+  footer{border-top:1px solid #2A1200;padding:24px;text-align:center;font-size:0.82rem;color:#503820;}
+  footer a{color:#E8821A;}
+  .lb{display:none;position:fixed;inset:0;background:#000000cc;z-index:999;align-items:center;justify-content:center;padding:20px;}
+  .lb.open{display:flex;}
+  .lb img{max-width:90vw;max-height:90vh;border-radius:12px;object-fit:contain;}
+  .lb-close{position:fixed;top:20px;right:24px;font-size:2rem;color:#fff;cursor:pointer;}
+  .fade{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s;}
+  .fade.visible{opacity:1;transform:none;}
+  @media(max-width:480px){.btn{padding:11px 20px;font-size:0.88rem;}.fb-banner-btn{margin-left:0;width:100%;}.fb-banner-btn .btn{width:100%;justify-content:center;}}
+</style>
+</head>
+<body>
+
+<div class="lb" id="lb" onclick="closeLB()">
+  <span class="lb-close">✕</span>
+  <img id="lb-img" src="" alt=""/>
+</div>
+
+<nav>
+  <span class="nav-logo">রঙিন ফানুস 🎋</span>
+  <a href="https://wa.me/8801776147974" class="nav-cta btn">📲 অর্ডার করুন</a>
+</nav>
+
+<section class="hero">
+  <div class="badge">রাজবাড়ী থেকে সরাসরি 🏡</div>
+  <h1>রঙিন ফানুস</h1>
+  <p class="hero-tag">রঙ এবং রাধুনি</p>
+  <p>হাতে আঁকা পাঞ্জাবি ও শাড়ি এবং হোমমেইড নাড়ু ও পিঠা — সবই তৈরি হয় ভালোবাসা দিয়ে। প্রতিটি পণ্য অনন্য, সাবধানে বাছাই করা এবং যত্ন সহকারে প্যাকেজ করা হয়েছে।</p>
+  <div class="btn-group">
+    <a href="https://wa.me/8801776147974" class="btn btn-primary">📲 WhatsApp অর্ডার</a>
+    <a href="https://www.facebook.com/share/18betuLSRQ/" target="_blank" class="btn btn-fb">👍 Facebook পেজ</a>
+  </div>
+</section>
+
+<div class="sec fade">
+  <p class="sec-tag">হোমমেইড খাবার</p>
+  <h2 class="sec-title">নাড়ু ও পিঠার কালেকশন</h2>
+  <div class="gallery">
+    <div class="gal-item" onclick="openLB(this.querySelector('img').src)">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlbaWmJmaoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" alt="নাড়ু"/>
+      <div class="gal-label">হোমমেইড নাড়ু</div>
+    </div>
+    <div class="gal-item" onclick="openLB(this.querySelector('img').src)">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlbaWmJmaoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" alt="পিঠা"/>
+      <div class="gal-label">বিভিন্ন পিঠা</div>
+    </div>
+    <div class="gal-item" onclick="openLB(this.querySelector('img').src)">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlbaWmJmaoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" alt="চিতই পিঠা"/>
+      <div class="gal-label">চিতই পিঠা</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec fade">
+  <p class="sec-tag">আমাদের সম্পর্কে</p>
+  <h2 class="sec-title">কেন আমাদের বেছে নিন?</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">🏡</div>
+      <h3>ঐতিহ্যবাহী</h3>
+      <p>প্রজন্মের পর প্রজন্ম ধরে চলে আসা ঐতিহ্যবাহী রেসিপি</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎨</div>
+      <h3>হাতে তৈরি</h3>
+      <p>প্রতিটি পণ্য সযত্নে হাতে তৈরি এবং ডিজাইন করা</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">❤️</div>
+      <h3>প্রেম দিয়ে তৈরি</h3>
+      <p>ভালোবাসা এবং যত্ন দিয়ে প্রতিটি পণ্য প্রস্তুত</p>
+    </div>
+  </div>
+</div>
+
+<section class="cta-bottom">
+  <h2 class="sec-title">আপনার অর্ডার করুন আজই</h2>
+  <p>সরাসরি হোমমেইড পণ্য এখন আপনার দোরগোড়ায়</p>
+  <a href="https://wa.me/8801776147974" class="btn btn-primary">📲 WhatsApp এ যোগাযোগ করুন</a>
+</section>
+
+<footer>
+  <p>© 2026 রঙিন ফানুস। সর্বাধিকার সংরক্ষিত। | <a href="https://wa.me/8801776147974">যোগাযোগ করুন</a></p>
+</footer>
+
+<script>
+function openLB(src) {
+  document.getElementById('lb').classList.add('open');
+  document.getElementById('lb-img').src = src;
+}
+
+function closeLB() {
+  document.getElementById('lb').classList.remove('open');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const faders = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+  faders.forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
